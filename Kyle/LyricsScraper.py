@@ -76,8 +76,8 @@ dict2012 = lyricSearcher(bb.billboardscrape(top2012))
 dict2013 = lyricSearcher(bb.billboardscrape(top2013))
 dict2014 = lyricSearcher(bb.billboardscrape(top2014))
 songdatabase = dict(dict2011.items() + dict2012.items() + dict2013.items() + dict2014.items())
-#songdatabase = lyricSearcher(["Blank Space", "Turn Down For What"])
+# songdatabase = lyricSearcher(["Blank Space", "Turn Down For What"])
 sys.stdout = open('file.txt', 'w')
 for key in songdatabase.keys():
-    print key + ' ' + songdatabase[key] + '\n'
+    print key + ':' + songdatabase[key] + '\n'
 sys.stdout.close()
