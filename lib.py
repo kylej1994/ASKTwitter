@@ -18,12 +18,18 @@ def getSylls(word):
 	else:
 		return 2
 
+def getIndex(st, check):
+	for i in range(len(st)):
+		if(st[i]==check):
+			return i
+	return 0
+
 def readDict(f):
 	diction={}
 	fd=open(f, 'r')
 	for line in fd:
 		line=line[:len(line)-1]
-		pos=line.index(" ")
+		pos=getIndex(line,":")
 		key=line[:pos]
 		val=line[pos+1:]
 		diction[key]=val
