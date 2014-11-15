@@ -45,7 +45,11 @@ def lyricSearcher(songs):
     for song in songs:
         inputElement = driver.find_element_by_name("q") #find the search element
         inputElement.send_keys(song) #send a qeury for the song name
-        inputElement.submit() #submit queury
+        try:
+            inputElement.submit() #submit queury
+        except(Exception):
+            driver.get(baseurl)
+            continue
         #click on song.
         try:
             songLink = driver.find_element_by_link_text(song)
