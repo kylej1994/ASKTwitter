@@ -13,5 +13,7 @@ def isdigit(c):
 	return c in digs
 
 def getSylls(word):
-	return [len(list(y for y in x if isdigit(y[-1]))) for x in d[word]][0]
-
+	if(word in d):
+		return [len(list(y for y in x if isdigit(y[-1]))) for x in d[word]][0]
+	else:
+		return 2
