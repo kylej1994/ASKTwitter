@@ -5,12 +5,12 @@ import lib
 dp={}
 ws=[]
 
-def genDP(dc):
+def genDP(dc, seed):
 	for key in dc:
 		for word in dc[key].split():
 			ws.append(lib.remPunc(word))
 		ws.append("END")
-	start=ws[0]
+	start=seed
 	for i in range(len(ws)):
 		if(ws[i]=="END"):
 			dp["END"]=["END"]
