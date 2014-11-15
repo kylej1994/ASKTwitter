@@ -20,9 +20,9 @@ def lyricsscraper(url):
     unmodifiedlyrics = tree.xpath('//*[@id="main"]/div[3]/text()')
     #print unmodifiedlyrics
 
-    blocklyrics = ''
     blocklyrics = ''.join(unmodifiedlyrics) #You know have a huge block of lyrics including weird spaces
-    finalLyrics = blocklyrics.replace('\r', "") #replace '\r' with a space
+    tempLyrics = blocklyrics.replace('\r', "") #replace '\r' with a space
+    finalLyrics = tempLyrics.replace('\n', "")
     return finalLyrics
 
 
@@ -31,7 +31,7 @@ lyricspage = 'http://www.azlyrics.com/lyrics/taylorswift/blankspace.html'
 print lyricsscraper(lyricspage)
 
 #The following function searches given an array of song names will search azlyrics, and return a dictionary of lyrics
-def lyricsearcher(songs):
+def lyricSearcher(songs):
     baseurl = "http://www.azlyrics.com/"
     driver = webdriver.Firefox()
     driver.get(baseurl)
@@ -39,16 +39,19 @@ def lyricsearcher(songs):
 #create a dictionary to map song names -> song lyrics
     songDb = {}
 
+#for each song, add its values to the dictionary
     for song in songs:
         inputElement = driver.find_element_by_name("q") #find the search element
         inputElement.send_keys(song) #send a qeury for the song name
         inputElement.submit() #submit queury
-        currentUrl = driver.getCurrentUrl()
+        #click on song.
+        driver.find_element_by_link_text(song).click()
+        currentUrl = driver.current_url
         songDb[song] = lyricsscraper(currentUrl) #map song + return to dictionary
-
         driver.get(baseurl) #return to baseurl for next song
 
-    print songDb.keys() #print keys for testing purposes
+    driver.quit()
+    print songDb #print keys for testing purposes
 
 testsongs = ["Blank Space", "Turn Down For What"]
-lyricsearcher(testsongs)
+lyricSearcher(testsongs)
