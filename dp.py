@@ -14,7 +14,7 @@ def genDP(dc):
 	for i in range(len(ws)):
 		if(ws[i]=="END"):
 			dp["END"]=["END"]
-		if(ws[i] in dp):
+		elif(ws[i] in dp):
 			dp[ws[i]].append(ws[i+1])
 		else:
 			dp[ws[i]]=[]
