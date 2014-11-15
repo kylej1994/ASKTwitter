@@ -63,7 +63,7 @@ def lyricSearcher(songs):
 # top2013 = "http://www.billboard.com/charts/hot-100/2013-10-05"
 # top2014 = "http://www.billboard.com/charts/hot-100/2014-02-22"
 # dict2011 = lyricSearcher(bb.billboardscrape(top2011))
-# dict2012 = lyricSearcher(billboardscrape(top2012))
-# dict2013 = lyricSearcher(billboardscrape(top2013))
-# dict2014 = lyriciSearcher(billboardscrape(top2014))
+# dict2012 = lyricSearcher(bb.billboardscrape(top2012))
+# dict2013 = lyricSearcher(bb.billboardscrape(top2013))
+# dict2014 = lyriciSearcher(bb.billboardscrape(top2014))
 # songdatabase = dict(dict2011.items() + dict2012.items() + dict2013.items() + dict2014.items())
