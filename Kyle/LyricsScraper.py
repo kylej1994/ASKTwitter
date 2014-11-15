@@ -23,7 +23,7 @@ def lyricsscraper(url):
 
     blocklyrics = ''.join(unmodifiedlyrics) #You know have a huge block of lyrics including weird spaces
     tempLyrics = blocklyrics.replace('\r', "") #replace '\r' with a space
-    finalLyrics = tempLyrics.replace('\n', "")
+    finalLyrics = tempLyrics.replace('\n', " ")
     return finalLyrics
 
 
