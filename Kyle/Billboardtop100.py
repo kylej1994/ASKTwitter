@@ -1,5 +1,7 @@
 __author__ = 'kylejablon'
 #This code scrapes the billboard top 100 using xpath and returns an array of the names of the top 100 songs
+#I don't think know if this code will still be applicable if Billboard changes the format of their website, but this
+# will work as of Saturday, November 14 2014
 
 #xpath ipmorts
 from lxml import html
@@ -14,7 +16,6 @@ import requests
 # prices = tree.xpath('//span/@class')
 # print buyers
 # print prices
-
 
 
 def billboardscrape(url):
@@ -38,6 +39,8 @@ def billboardscrape(url):
 
     return songs
 
+
+##TESTING##
 #The current billboard web page we will access is going to be the week of October 5, 2013. This can be modified later.
-billboardwebpage = 'http://www.billboard.com/charts/hot-100/2013-10-05'
-print billboardscrape(billboardwebpage)
+# billboardwebpage = 'http://www.billboard.com/charts/hot-100/2013-10-05'
+# print billboardscrape(billboardwebpage)

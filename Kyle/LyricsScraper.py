@@ -5,6 +5,7 @@ __author__ = 'kylejablon'
 #xpath ipmorts
 from lxml import html
 import requests
+import Billboardtop100 as bb
 
 #selenium imports
 from selenium import webdriver
@@ -27,8 +28,8 @@ def lyricsscraper(url):
 
 
 #This is our test lyrics page, we will use azlyrics.com
-lyricspage = 'http://www.azlyrics.com/lyrics/taylorswift/blankspace.html'
-print lyricsscraper(lyricspage)
+#lyricspage = 'http://www.azlyrics.com/lyrics/taylorswift/blankspace.html'
+#print lyricsscraper(lyricspage)
 
 #The following function searches given an array of song names will search azlyrics, and return a dictionary of lyrics
 def lyricSearcher(songs):
@@ -51,7 +52,18 @@ def lyricSearcher(songs):
         driver.get(baseurl) #return to baseurl for next song
 
     driver.quit()
-    print songDb #print keys for testing purposes
 
-testsongs = ["Blank Space", "Turn Down For What"]
-lyricSearcher(testsongs)
+#Testcases
+#testsongs = ["Blank Space", "Turn Down For What"]
+#print lyricSearcher(testsongs)
+
+#Four arbitrarily chosen weeks for billboard database building
+#top2011 = "http://www.billboard.com/charts/hot-100/2011-02-19"
+# top2012 = "http://www.billboard.com/charts/hot-100/2012-04-28"
+# top2013 = "http://www.billboard.com/charts/hot-100/2013-10-05"
+# top2014 = "http://www.billboard.com/charts/hot-100/2014-02-22"
+# dict2011 = lyricSearcher(bb.billboardscrape(top2011))
+# dict2012 = lyricSearcher(billboardscrape(top2012))
+# dict2013 = lyricSearcher(billboardscrape(top2013))
+# dict2014 = lyriciSearcher(billboardscrape(top2014))
+# songdatabase = dict(dict2011.items() + dict2012.items() + dict2013.items() + dict2014.items())
