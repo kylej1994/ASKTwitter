@@ -67,17 +67,17 @@ def lyricSearcher(songs):
 
 
 #Four arbitrarily chosen weeks for billboard database building
-top2011 = "http://www.billboard.com/charts/hot-100/2011-02-19"
-top2012 = "http://www.billboard.com/charts/hot-100/2012-04-28"
-top2013 = "http://www.billboard.com/charts/hot-100/2013-10-05"
-top2014 = "http://www.billboard.com/charts/hot-100/2014-02-22"
-dict2011 = lyricSearcher(bb.billboardscrape(top2011))
-dict2012 = lyricSearcher(bb.billboardscrape(top2012))
-dict2013 = lyricSearcher(bb.billboardscrape(top2013))
-dict2014 = lyricSearcher(bb.billboardscrape(top2014))
-songdatabase = dict(dict2011.items() + dict2012.items() + dict2013.items() + dict2014.items())
-#songdatabase = lyricSearcher(["Blank Space", "Turn Down For What"])
+# top2011 = "http://www.billboard.com/charts/hot-100/2011-02-19"
+# top2012 = "http://www.billboard.com/charts/hot-100/2012-04-28"
+# top2013 = "http://www.billboard.com/charts/hot-100/2013-10-05"
+# top2014 = "http://www.billboard.com/charts/hot-100/2014-02-22"
+# dict2011 = lyricSearcher(bb.billboardscrape(top2011))
+# dict2012 = lyricSearcher(bb.billboardscrape(top2012))
+# dict2013 = lyricSearcher(bb.billboardscrape(top2013))
+# dict2014 = lyricSearcher(bb.billboardscrape(top2014))
+# songdatabase = dict(dict2011.items() + dict2012.items() + dict2013.items() + dict2014.items())
+songdatabase = lyricSearcher(["Blank Space", "Turn Down For What"])
 sys.stdout = open('file.txt', 'w')
 for key in songdatabase.keys():
-    print key + ' ' + songdatabase[key] + '\n'
+    print key + ':' + songdatabase[key] + '\n'
 sys.stdout.close()
